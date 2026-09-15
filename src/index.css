@@ -4,3 +4,154 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  /* ---------- Tokens (RGB channels so Tailwind can apply opacity) ---------- */
+  :root {
+    --ld-cream: 255 242 236;
+    --ld-forest: 9 54 41;
+    --ld-teal: 0 93 92;
+    --ld-brass: 176 124 52;
+
+    --ld-gutter: 1.25rem;
+    --ld-section: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    :root {
+      --ld-gutter: 3rem;
+      --ld-section: 3.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    :root {
+      --ld-gutter: 5rem;
+    }
+  }
+
+  /* Reserve scrollbar space so layout doesn't shift between short and long pages */
+  html {
+    overflow-y: scroll;
+  }
+
+  @supports (scrollbar-gutter: stable) {
+    html {
+      overflow-y: auto;
+      scrollbar-gutter: stable;
+    }
+  }
+
+  body {
+    @apply bg-surface text-ink font-serif text-body antialiased;
+  }
+
+  :focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-brand;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+}
+
+@layer components {
+  /* ---------- Layout ---------- */
+  .page-x {
+    @apply px-gutter;
+  }
+
+  .container-page {
+    @apply mx-auto max-w-page;
+  }
+
+  .section {
+    @apply py-section px-gutter;
+  }
+
+  /* ---------- Type ---------- */
+  .lead {
+    @apply text-lead italic font-light text-ink-muted;
+  }
+
+  .text-note {
+    @apply italic font-light text-ink-muted;
+  }
+
+  /* ---------- Rules ---------- */
+  .rule {
+    @apply border-b-2 border-dotted border-line-strong;
+  }
+
+  .rule-top {
+    @apply border-t-2 border-dotted border-line-strong;
+  }
+
+  .rule-soft {
+    @apply border-b border-dotted border-line;
+  }
+
+  /* Dotted leader between a label and a value, e.g. dish name and price */
+  .leader {
+    @apply flex-1 min-w-4 border-b border-dotted border-ink/40;
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2 transition-colors duration-200 ease-soft;
+  }
+
+  .btn-lg {
+    @apply px-6 py-3;
+  }
+
+  .btn-primary {
+    @apply btn bg-brand text-white hover:bg-brand-hover;
+  }
+
+  .btn-inverse {
+    @apply btn bg-surface text-ink hover:bg-white;
+  }
+
+  /* ---------- Chips ---------- */
+  .chip {
+    @apply rounded-full border border-brand/30 px-2.5 py-0.5 text-tag text-brand;
+  }
+
+  .tab {
+    @apply block whitespace-nowrap rounded-full px-4 py-1.5 text-ink-subtle transition-colors hover:text-ink;
+  }
+
+  .tab-active {
+    @apply bg-brand text-white hover:text-white;
+  }
+
+  /* ---------- Links ---------- */
+  .link-quiet {
+    @apply text-ink-muted transition-colors hover:text-ink;
+  }
+
+  .link-underline {
+    @apply relative py-1 transition-colors after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-0 after:bg-current after:transition-all hover:text-ink;
+  }
+
+  .link-underline-active {
+    @apply text-ink after:w-full;
+  }
+
+  /* ---------- Media ---------- */
+  .frame-arch {
+    @apply w-full object-cover rounded-arch;
+  }
+
+  .frame-round {
+    @apply shrink-0 rounded-full object-cover ring-1 ring-line-faint ring-offset-4 ring-offset-surface;
+  }
+
+  /* ---------- Surfaces ---------- */
+  .band-arch {
+    @apply rounded-arch-lg bg-surface-inverse text-ink-inverse;
+  }
+}

@@ -1,19 +1,23 @@
-function MenuItem({name, description, price, imgsrc}) {
+function MenuItem({name, description, price, imgsrc, tags = []}) {
     return (
-        <div className="flex items-center justify-between text-main-text mx-6 py-4 border-b-2 border-dotted border-main-text">
-            <div className="flex gap-2">
-                <div className="w-28">
-                    <img src="/download.jpeg" alt="food-image"/>
+        <li className="flex items-center gap-4 md:gap-5 py-5 rule-soft">
+            <img src={imgsrc} alt={name} loading="lazy" className="frame-round size-16 md:size-20" />
+            <div className="flex-1 min-w-0">
+                <div className="flex items-baseline gap-3">
+                    <h3 className="text-title font-medium">{name}</h3>
+                    <span aria-hidden="true" className="leader" />
+                    <p className="text-title font-medium tabular-nums">{`৳${price}`}</p>
                 </div>
-                <div>
-                    <h3 className="text-xl md:text-2xl font-normal">{name}</h3>
-                    <p className="text-lg md:text-xl font-light">{description}</p>
-                </div>
+                <p className="mt-1 text-note">{description}</p>
+                {tags.length > 0 && (
+                    <ul className="mt-2 flex flex-wrap gap-2">
+                        {tags.map((tag) => (
+                            <li key={tag} className="chip">{tag}</li>
+                        ))}
+                    </ul>
+                )}
             </div>
-            <div>
-                <p className="text-base md:text-lg font-medium">{`$${price}`}</p>
-            </div>
-        </div>
+        </li>
     )
 }
 
