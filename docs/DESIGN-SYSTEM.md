@@ -135,6 +135,19 @@ Cards and boxes don't get shadows. Hierarchy comes from dotted rules, spacing an
 
 `.btn` is the shared base (pill shape, icon gap, color transition). `.btn-lg` makes it larger.
 
+Disabled buttons fade to 50% and ignore the pointer.
+
+### Form fields
+
+```jsx
+<label className="block">
+  <span className="field-label">Phone</span>
+  <input type="tel" className="field" />
+</label>
+```
+
+`.field` works on `input`, `select` and `textarea`. It keeps the global focus outline.
+
 ### Chips
 
 ```jsx

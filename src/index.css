@@ -105,7 +105,7 @@
 
   /* ---------- Buttons ---------- */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2 transition-colors duration-200 ease-soft;
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2 transition-colors duration-200 ease-soft disabled:pointer-events-none disabled:opacity-50;
   }
 
   .btn-lg {
@@ -122,6 +122,15 @@
 
   .btn-inverse {
     @apply btn bg-surface text-ink hover:bg-white;
+  }
+
+  /* ---------- Forms ---------- */
+  .field-label {
+    @apply mb-1.5 block text-caption text-ink-muted;
+  }
+
+  .field {
+    @apply block w-full rounded-2xl border border-line bg-white/60 px-4 py-2.5 text-ink placeholder:text-ink-subtle transition-colors duration-200 ease-soft hover:border-line-strong focus:border-brand;
   }
 
   /* ---------- Chips ---------- */

@@ -88,7 +88,7 @@ public/
 
 ### Pages
 - **Home page content is placeholder.** It has a hero, story, signature dishes, meal times, a guest quote and the reserve band, but the story, stats and quote are invented copy and the photos are stock images that don't show Bangladeshi food.
-- **Order page is a placeholder.** It only shows "Hello from the Order!" There is no cart, order form or checkout.
+- **Orders go nowhere.** The Order page has a basket (saved in `localStorage`), a pickup or delivery form and a confirmation screen, but placing an order only shows the confirmation. Nothing is sent to the restaurant.
 - There is no 404 / not-found route.
 
 ### Features
