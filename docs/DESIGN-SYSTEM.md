@@ -9,7 +9,7 @@ The look is warm cream paper, deep forest-green ink, a teal action color and a s
 | Layer | File | What it holds |
 |---|---|---|
 | Raw values | [src/index.css](../src/index.css) (`:root`) | CSS variables (`--ld-*`): color channels, gutter and section spacing |
-| Tailwind tokens | [tailwind.config.js](../tailwind.config.js) | Semantic colors, type scale, radii, widths, spacing, motion |
+| Tailwind tokens | [tailwind.config.cjs](../tailwind.config.cjs) | Semantic colors, type scale, radii, widths, spacing, motion |
 | Component classes | [src/index.css](../src/index.css) (`@layer components`) | `.btn-primary`, `.chip`, `.rule`, `.frame-arch`, and so on |
 
 **Rules**

@@ -10,13 +10,13 @@ The project is at an **early, front-end-only stage**. It has no backend, no real
 
 | Area | Choice |
 |---|---|
-| Framework | React 19 (Create React App / `react-scripts` 5) |
+| Framework | React 19 (Vite) |
 | Routing | React Router DOM 7 (`BrowserRouter`) |
 | Styling | Tailwind CSS 3 |
 | Font | Noto Serif (Google Fonts, loaded in `src/index.css`) |
 | Language | Plain JavaScript (no TypeScript) |
 
-### Theme tokens (`tailwind.config.js`)
+### Theme tokens (`tailwind.config.cjs`)
 
 - `main-bg` is `rgb(255,242,236)`, a warm cream background
 - `main-text` is `rgb(9,54,41)`, a dark green text color
@@ -26,9 +26,9 @@ The project is at an **early, front-end-only stage**. It has no backend, no real
 ### Scripts
 
 ```bash
-npm start      # dev server on http://localhost:3000
-npm run build  # production build
-npm test       # Jest via react-scripts (no tests exist yet)
+npm run dev      # dev server on http://localhost:3000 (npm start also works)
+npm run build    # production build into dist/
+npm run preview  # serve the production build locally
 ```
 
 ---
@@ -36,20 +36,23 @@ npm test       # Jest via react-scripts (no tests exist yet)
 ## Project structure
 
 ```
+index.html                # Vite entry page (loads src/main.jsx)
+vite.config.js            # Vite config (React plugin, port 3000)
+postcss.config.cjs        # Tailwind + Autoprefixer
 src/
-├── index.js              # Mounts <App/> inside BrowserRouter
+├── main.jsx              # Mounts <App/> inside BrowserRouter
 ├── index.css             # Tailwind directives + Google Font import
-├── App.js                # Navbar, routes, Footer
+├── App.jsx               # Navbar, routes, Footer
 ├── Pages/
-│   ├── Home.js           # "/"      (empty)
-│   ├── Menu.js           # "/menu"  (hero + lunch & dinner menus)
-│   └── Order.js          # "/order" (placeholder text)
+│   ├── Home.jsx          # "/"
+│   ├── Menu.jsx          # "/menu"  (hero + lunch & dinner menus)
+│   └── Order.jsx         # "/order"
 └── Components/
-    ├── Navbar.js         # Top nav with NavLinks
-    ├── Footer.js         # Contact / Navigate / Menu / Social columns
-    ├── MenuCard.js       # Titled menu section + "Book a Table" button
-    ├── MenuItem.js       # One dish row: image, name, description, price
-    └── extra.js          # Empty file
+    ├── Navbar.jsx        # Top nav with NavLinks
+    ├── Footer.jsx        # Contact / Navigate / Menu / Social columns
+    ├── MenuCard.jsx      # Titled menu section + "Book a Table" button
+    ├── MenuItem.jsx      # One dish row: image, name, description, price
+    └── extra.jsx         # Empty file
 public/
 └── f1.jpg, f3.jpg, f4.jpg, fp1–fp3, download.jpeg, …   # Food photos
 ```
@@ -95,7 +98,7 @@ public/
 - **Ordering:** no cart, quantity selection, order summary or submission.
 - **Table booking:** the "Book a Table" buttons do nothing (no `onClick`, no form, no route).
 - **Navbar "Get Ready" button:** has no action.
-- **Backend / data:** menu data is hard-coded in `Menu.js`. There is no API, database, auth or payments.
+- **Backend / data:** menu data is hard-coded in `Menu.jsx`. There is no API, database, auth or payments.
 - **Breakfast menu:** the footer links to it, but no breakfast menu exists.
 
 ### Styling and polish
@@ -104,7 +107,7 @@ public/
 - **The food photos in the menu hero** overflow horizontally with no carousel or scroll behavior.
 
 ### Known bugs and inconsistencies
-- The dinner section in `Menu.js` is titled **"Lunch Menu"** (it should be "Dinner Menu").
+- The dinner section in `Menu.jsx` is titled **"Lunch Menu"** (it should be "Dinner Menu").
 - `MenuItem` accepts an `imgsrc` prop but ignores it. Every dish shows the same `/download.jpeg`.
 - Menu data puts **"Biryani & Polao"** as the description of Chicken Nanban.
 - Prices use a **`$`** sign, but the restaurant is Dhaka-themed (should this be ৳ / BDT?).
@@ -112,15 +115,14 @@ public/
   - Uses plain `<a href>` instead of React Router `<Link>`, so every click reloads the whole page.
   - The Breakfast/Lunch/Dinner links point to `/`, `/menu` and `/order` rather than to the matching menu sections.
   - Typos and placeholder data: "FaceBokk", "BreakFast", phone "O2 3863 3737" (letter O instead of zero), `abc@gmail.com`, and `href="#"` social links.
-- `public/index.html` and `manifest.json` still have the Create React App defaults: title "React App", default description, and CRA icons.
-- `README.md` is the default Create React App README.
-- `src/Components/extra.js` is an empty file.
+- The favicon and `logo192.png` / `logo512.png` icons are still the Create React App defaults.
+- `src/Components/extra.jsx` is an empty file.
 - Unused images: `f2.webp` and `f6.webp`.
 - The images have generic `alt` text ("food-img", "food-image"), which is poor for accessibility.
 
 ### Quality
-- There are no tests. The CRA test setup was deleted.
-- There is no linting or formatting config beyond CRA defaults.
+- There are no tests and no test runner (Vitest would be the natural fit).
+- There is no linting or formatting config.
 - There is no deployment config.
 
 ---
