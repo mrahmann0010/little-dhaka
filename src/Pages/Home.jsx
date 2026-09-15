@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ReserveBand from "../Components/ReserveBand";
+import { BookTableButton } from "../Components/Booking";
 import { menuSections } from "../data/menu";
 import { contact, hoursToday } from "../data/site";
 
@@ -77,7 +78,7 @@ function Hero () {
                                 <path fillRule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.64L10.2 5.28a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.19-3.97H3.75A.75.75 0 0 1 3 10Z" clipRule="evenodd" />
                             </svg>
                         </Link>
-                        <button type="button" className="btn-outline btn-lg">Book a Table</button>
+                        <BookTableButton variant="outline" size="lg" />
                     </div>
 
                     <dl className="mt-12 pt-6 rule-top grid grid-cols-1 sm:grid-cols-3 gap-5 motion-safe:animate-rise" style={riseDelay(4)}>

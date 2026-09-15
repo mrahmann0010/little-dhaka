@@ -4,11 +4,11 @@ import Menu from "./Pages/Menu";
 import Order from "./Pages/Order";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
+import { BookingProvider } from "./Components/Booking";
 
 function App() {
   return (
-    <>
-      
+    <BookingProvider>
       <Navbar />
       
       <Routes>
@@ -18,7 +18,7 @@ function App() {
       </Routes>
 
       <Footer />
-    </>
+    </BookingProvider>
   );
 }
 

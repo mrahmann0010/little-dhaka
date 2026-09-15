@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom"
+import { BookTableButton } from "./Booking";
 
 const links = [
     { to: '/', label: 'Home' },
@@ -32,9 +33,7 @@ export default function Navbar() {
                 </ul>
 
                 <div className="flex items-center gap-2">
-                    <button type="button" className="hidden sm:inline-flex btn-primary">
-                        Book a Table
-                    </button>
+                    <BookTableButton className="hidden sm:inline-flex" />
                     <button
                         type="button"
                         className="md:hidden p-2 -mr-2"
@@ -59,9 +58,7 @@ export default function Navbar() {
                         </li>
                     ))}
                     <li className="sm:hidden">
-                        <button type="button" className="w-full btn-primary">
-                            Book a Table
-                        </button>
+                        <BookTableButton className="w-full" onClick={() => setOpen(false)} />
                     </li>
                 </ul>
             )}
