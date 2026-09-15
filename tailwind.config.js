@@ -45,10 +45,12 @@ module.exports = {
 
       fontFamily: {
         serif: ['"Noto Serif"', 'Georgia', 'serif'],
+        bengali: ['"Noto Serif Bengali"', '"Noto Serif"', 'serif'],
       },
 
       // Fluid type scale: no breakpoint modifiers needed
       fontSize: {
+        hero: ['clamp(2.75rem, 1.5rem + 5.2vw, 6rem)', { lineHeight: '1.02', letterSpacing: '-0.02em' }],
         display: ['clamp(2.25rem, 1.6rem + 2.8vw, 3.75rem)', { lineHeight: '1.1' }],
         heading: ['clamp(1.875rem, 1.45rem + 1.9vw, 3rem)', { lineHeight: '1.15' }],
         lead: ['clamp(1.0625rem, 1rem + 0.35vw, 1.25rem)', { lineHeight: '1.65' }],

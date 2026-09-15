@@ -61,6 +61,7 @@ The type scale is fluid: sizes grow smoothly with the screen, so you don't need 
 
 | Token | Size (min to max) | Line height | Use for |
 |---|---|---|---|
+| `text-hero` | 44px to 96px | 1.02 | The home page `h1` only |
 | `text-display` | 36px to 60px | 1.1 | One page title (`h1`) per page |
 | `text-heading` | 30px to 48px | 1.15 | Section titles (`h2`) |
 | `text-lead` | 17px to 20px | 1.65 | Intro paragraphs, serving hours |
@@ -76,6 +77,9 @@ The type scale is fluid: sizes grow smoothly with the screen, so you don't need 
 |---|---|
 | `.lead` | `text-lead` in light italic, `ink-muted`. Use for page intros. |
 | `.text-note` | Light italic, `ink-muted`. Use for dish descriptions and section notes. |
+| `.eyebrow` | Small italic `accent` label with a short leading line. Use above section titles. |
+
+**Bengali:** `font-bengali` (Noto Serif Bengali) is for short Bengali words used as decoration or greeting, such as স্বাগতম. Mark them `lang="bn"`, and add `aria-hidden="true"` when an English equivalent sits beside them.
 
 **Voice in type:** headings are upright and regular weight. Supporting copy is light italic. Avoid all-caps labels, and avoid bold or colored words inside headings.
 
@@ -125,6 +129,7 @@ Cards and boxes don't get shadows. Hierarchy comes from dotted rules, spacing an
 
 ```jsx
 <button className="btn-primary">Book a Table</button>          // teal on cream
+<button className="btn-outline btn-lg">Book a Table</button>   // secondary, beside a primary
 <button className="btn-inverse btn-lg">Book a Table</button>   // cream on forest band
 ```
 

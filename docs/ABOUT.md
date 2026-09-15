@@ -87,7 +87,7 @@ public/
 ## What is not done yet
 
 ### Pages
-- **Home page is empty.** It only renders an empty `<main>`. The menu sections that used to be here were moved to `/menu` and nothing replaced them. It still needs a hero, an about/story section, featured dishes, testimonials and so on.
+- **Home page content is placeholder.** It has a hero, story, signature dishes, meal times, a guest quote and the reserve band, but the story, stats and quote are invented copy and the photos are stock images that don't show Bangladeshi food.
 - **Order page is a placeholder.** It only shows "Hello from the Order!" There is no cart, order form or checkout.
 - There is no 404 / not-found route.
 

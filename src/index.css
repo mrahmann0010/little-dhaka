@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Noto+Serif+Bengali:wght@300..500&display=swap');
 
 
 @tailwind base;
@@ -80,6 +80,11 @@
     @apply italic font-light text-ink-muted;
   }
 
+  /* Small label above a section title */
+  .eyebrow {
+    @apply flex items-center gap-3 text-caption italic text-accent before:h-px before:w-8 before:bg-current;
+  }
+
   /* ---------- Rules ---------- */
   .rule {
     @apply border-b-2 border-dotted border-line-strong;
@@ -109,6 +114,10 @@
 
   .btn-primary {
     @apply btn bg-brand text-white hover:bg-brand-hover;
+  }
+
+  .btn-outline {
+    @apply btn border border-line-strong text-ink hover:border-ink hover:bg-ink hover:text-ink-inverse;
   }
 
   .btn-inverse {
